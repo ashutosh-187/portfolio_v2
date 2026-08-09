@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    /* Backgrounds */
+    --background-color: #fcf9f1;
+    --background-secondary: #E5E2DB;
+    --background-light: #f6f3eb;
+    --background-medium: #f1eee6;
+    --background-dark: #F5F1E9;
+
+    /* =========================
+        Font Families
+    ========================= */
+
+    --heading-font: "Libre Caslon Text", serif;
+    --body-font: "Libre Caslon Text", serif;
+    --label-font: "Libre Franklin", sans-serif;
+    --mono-font: "JetBrains Mono", monospace;
+
+    /* Text */
+    --heading-color: #1c1c17;
+    --text-color: #444748;
+    --text-muted-color: #676767;
+    --text-light-color: #f4f1e9;
+
+    /* Theme Colors */
+    --primary-color: #000000;
+    --secondary-color: #b02d25;
+    --success-color: #2d4b32;
+    --error-color: #ba1a1a;
+
+    /* Borders */
+    --border-color: #1c1c17;
+    --border-light-color: #c4c7c7;
+
+    /* Misc */
+    --overlay-color: #5f5e5e;
+}
