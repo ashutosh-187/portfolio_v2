@@ -1,5 +1,6 @@
 import React from 'react'
 import SkillsCard from '../../components/SkillsCard/SkillsCard';
+import { BsAsterisk } from "react-icons/bs";
 
 function Skills() {
 
@@ -66,7 +67,7 @@ function Skills() {
     ];
 
     return (
-        <div id="skills" className="skills-main-container">
+        <div id="skills" className="skills-main-container border-b-2 border-[var(--border-color)]">
             <div className="skills-heading-container mb-5 border-b-2 border-[var(--border-color)] p-5">
                 <h1 className="font-family:var(--heading-font)] text-[var(--heading-color)] font-semibold text-5xl text-center">
                     Evidence Locker
@@ -91,7 +92,7 @@ function Skills() {
                     </p>
                 </div>
             </div>
-            <div className="skills-card-container grid grid-cols-1 gap-8 p-5 border-b-2 border-[var(--border-color)] sm:grid-cols-2 lg:grid-cols-3 mt-5">
+            <div className="skills-card-container grid grid-cols-1 gap-8 p-5 sm:grid-cols-2 lg:grid-cols-3 mt-5">
                 {skillCategories.map((category, index) => (
                     <SkillsCard
                         key={category.heading}
@@ -100,6 +101,11 @@ function Skills() {
                         skills={category.skills}
                     />
                 ))}
+            </div>
+            <div className="flex items-center justify-center w-full p-5 text-4xl gap-4">
+                <BsAsterisk />
+                <BsAsterisk />
+                <BsAsterisk />
             </div>
         </div>
     )

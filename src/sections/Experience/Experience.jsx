@@ -1,5 +1,6 @@
 import React from 'react'
 import ExperienceCard from '../../components/ExperienceCard/ExperienceCard';
+import { BsAsterisk } from "react-icons/bs";
 
 function Experience() {
   const experiences = [
@@ -108,6 +109,11 @@ function Experience() {
             ))}
           </div>
         </main>
+      </div>
+      <div className="flex items-center justify-center w-full p-5 text-4xl gap-4">
+        <BsAsterisk />
+        <BsAsterisk />
+        <BsAsterisk />
       </div>
     </div>
   )

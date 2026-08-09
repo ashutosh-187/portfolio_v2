@@ -3,6 +3,7 @@ import CustomButton from '../../components/Button/Button/CustomButton';
 import { FaLinkedinIn } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa";
 import { SiGmail } from "react-icons/si";
+import { BsAsterisk } from "react-icons/bs";
 
 function ContactForm() {
 
@@ -49,7 +50,7 @@ function ContactForm() {
     };
 
     return (
-        <div id="contact" className="contact-form-container border-b-2 border-[var(--border-color)] p-5">
+        <div id="contact" className="contact-form-container border-b-2 border-[var(--border-color)] p-5 mb-5">
             <div className="contact-form-heading text-center border-b-2 border-[var(--border-color)] mb-5">
                 <h1 className="main-heading [font-family:var(--heading-font)] text-[var(--heading-color)] font-semibold text-5xl mb-5">ESTABLISH CONTACT</h1>
                 <h2 className="text-2xl text-[var(--text-color)] [font-family:var(--label-font)] mb-5">For inquiries, opportunities, and matters requiring technical attention.</h2>
@@ -100,7 +101,11 @@ function ContactForm() {
                         </div>
                     </div>
                 </div>
-
+            </div>
+            <div className="flex items-center justify-center w-full p-5 text-4xl gap-4">
+                <BsAsterisk />
+                <BsAsterisk />
+                <BsAsterisk />
             </div>
         </div>
     )
