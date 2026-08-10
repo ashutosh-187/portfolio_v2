@@ -3,6 +3,7 @@ import LandingImage from "../../components/LandingImage/LandingImage"
 import CustomButton from '../../components/Button/Button/CustomButton';
 import DownloadButton from '../../components/Button/DownloadButton/DownloadButton';
 import {scrollToSection} from "../../hooks/useLenis"
+import me from "../../assets/me.png"
 
 
 function Hero() {
@@ -76,7 +77,7 @@ function Hero() {
                         SOFTWARE ENGINEER
                     </h2>
                     <div className='picture-container mt-4 w-full'>
-                        <LandingImage src="src/assets/me.png" />
+                        <LandingImage src={me} />
                     </div>
                     <p className="[font-family:var(--body-font)] mt-4 text-2xl">
                         Building modern software with Python, Django, React, Next.js, PostgreSQL,
