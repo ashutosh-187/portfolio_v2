@@ -85,7 +85,7 @@ function ContactForm() {
 
                     <div className="icon-container flex items-center justify-center gap-5">
                         <div className="group relative">
-                            <a href="www.linkedin.com/in/ashutosh-tiwari-a938a6243" target="_blank" rel="noopener noreferrer" className="flex h-11 w-11 items-center justify-center border border-[var(--border-color)] text-lg text-[var(--heading-color)] transition-colors duration-200 hover:border-[#0A66C2] hover:bg-[#0A66C2] hover:text-white"><FaLinkedinIn /></a>
+                            <a href="https://www.linkedin.com/in/ashutosh-tiwari-a938a6243" target="_blank" rel="noopener noreferrer" className="flex h-11 w-11 items-center justify-center border border-[var(--border-color)] text-lg text-[var(--heading-color)] transition-colors duration-200 hover:border-[#0A66C2] hover:bg-[#0A66C2] hover:text-white"><FaLinkedinIn /></a>
                             <span className="pointer-events-none absolute -top-9 left-1/2 -translate-x-1/2 whitespace-nowrap bg-[var(--primary-color)] px-2 py-1 [font-family:var(--label-font)] text-[10px] font-bold uppercase tracking-wider text-[var(--text-light-color)] opacity-0 transition-opacity duration-200 group-hover:opacity-100">@ashutosh-187</span>
                         </div>
 
