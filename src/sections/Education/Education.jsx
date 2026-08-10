@@ -1,6 +1,7 @@
 import React from 'react'
 import EducationCard from '../../components/EducationCard/EducationCard';
 import { BsAsterisk } from "react-icons/bs";
+import education from "../../assets/education.png"
 
 function Education() {
     return (
@@ -48,7 +49,7 @@ function Education() {
                 </div>
                 <div className="right-column p-5 flex items-center justify-center">
                     <div className="image-container border-2 border-[var(--border-color)]">
-                        <img src="src/assets/education.png" alt="" />
+                        <img src={education} alt="" />
                     </div>
                 </div>
             </div>

@@ -1,5 +1,16 @@
 import React, { useEffect, useRef, useState } from "react";
 import ProjectCard from "../../components/ProjectCard/ProjectCard";
+import Automated_Market_Data_Ingestion_System from "../../assets/projects/Automated_Market_Data_Ingestion_System.png"
+import edusity from "../../assets/projects/edusity.png"
+import ochi_designs from "../../assets/projects/ochi_designs.png"
+import option_chain_backend from "../../assets/projects/option_chain_backend.png"
+import option_chain_frontend from "../../assets/projects/option_chain_frontend.png"
+import paper_trading from "../../assets/projects/paper_trading.png"
+import sidcup from "../../assets/projects/sidcup.png"
+import travomiles from "../../assets/projects/travomiles.png"
+import watchlist_backend from "../../assets/projects/watchlist_backend.png"
+import watchlist_frontend from "../../assets/projects/watchlist_frontend.png"
+
 
 function Projects() {
     const projects = [
@@ -7,7 +18,7 @@ function Projects() {
             projectName: "Travomiles",
             description:
                 "A full-stack flight booking and travel management platform built with Django and Next.js, supporting flight search, booking, real-time flight tracking, and instant notifications. The platform uses Celery and Redis for asynchronous workflows and Kafka for event-driven communication across microservices. PostgreSQL manages transactional data, while Docker and AWS enable scalable containerized deployment. The frontend leverages Next.js, Redux, and RTK Query to deliver a responsive and efficient booking experience.",
-            image: "src/assets/projects/travomiles.png",
+            image: travomiles,
             techStack: [
                 "Python", "Django", "Celery", "Redis", "Apache Kafka",
                 "PostgreSQL", "Next.js", "Redux", "RTK Query"
@@ -17,7 +28,7 @@ function Projects() {
             projectName: "Paper Trading Platform Backend",
             description:
                 "A scalable paper trading backend built with Python and Flask, designed to simulate real-world stock market activity without financial risk. The platform provides a complete trading workflow with order management, stock market simulation, watchlist subscriptions, stop-loss execution, alerts, and a Risk Management System (RMS). It also includes a backtesting engine for evaluating trading strategies against historical market data. MongoDB handles trading and market data, while Redis enables low-latency caching and real-time operations. Celery manages asynchronous workloads, and Kafka powers event-driven communication across market, order, and trading workflows.",
-            image: "/src/assets/projects/paper_trading.png",
+            image: paper_trading,
             techStack: ["Python", "Flask", "Web Socket", "MongoDB", "Redis", "Celery", "Apache Kafka"],
             link: "https://github.com/ashutosh-187/Paper_Trading_platform_backend",
         },
@@ -25,7 +36,7 @@ function Projects() {
             projectName: "Option Chain Backend",
             description:
                 "A real-time option chain backend built with Python and Flask, integrating the XTS Market Data API to stream live market data. The system provides REST APIs and Socket.IO connections for real-time option chain updates, while Mibian calculates implied volatility and option Greeks. Pandas, NumPy, and Redis are used for efficient data processing, caching, and low-latency data retrieval.",
-            image: "src/assets/projects/option_chain_backend.png",
+            image: option_chain_backend,
             techStack: ["Python", "Flask", "Web Socket", "NumPy", "Pandas", "MongoDB", "Redis"],
             link: "https://github.com/ashutosh-187/option_chain_backend",
         },
@@ -33,7 +44,7 @@ function Projects() {
             projectName: "Option Chain Frontend",
             description:
                 "A real-time option chain interface built with React, designed to visualize live market data, option prices, implied volatility, and option Greeks in an intuitive trading dashboard. The frontend uses Socket.IO to receive real-time updates and provides interactive option chain views for monitoring calls, puts, strikes, and market movements efficiently.",
-            image: "src/assets/projects/option_chain_frontend.png",
+            image: option_chain_frontend,
             techStack: ["JavaScript", "React.js", "TailwindCSS"],
             link: "https://github.com/ashutosh-187/option_chain_frontend",
         },
@@ -41,7 +52,7 @@ function Projects() {
             projectName: "Automated Market Data Ingestion System",
             description:
                 "An automated market-data ingestion service built with Python and Flask to download daily Bhav Copies for F&O and Equity segments from NSE, BSE, and MCX official sources. The system eliminates manual downloads by running as a scheduled PM2 job on a Linux server, automatically fetching the latest market files, processing the data, and storing it in MongoDB for downstream trading and analytics workflows.",
-            image: "src/assets/projects/Automated_Market_Data_Ingestion_System.png",
+            image: Automated_Market_Data_Ingestion_System,
             techStack: ["Python", "Flask", "MongoDB"],
             link: "https://github.com/ashutosh-187/Download_bhav_copy_from_Exchange",
         },
@@ -49,7 +60,7 @@ function Projects() {
             projectName: "Stock Market Watchlist Backend",
             description:
                 "A real-time stock market watchlist backend built with Python and Flask, designed to provide fast and reliable market-data updates for subscribed instruments. The system allows users to create and manage personalized watchlists, subscribe or unsubscribe stocks, and receive live price updates through WebSockets without repeatedly polling the server. MongoDB manages watchlist and instrument data, while Redis provides low-latency caching and supports efficient real-time data delivery. The backend is structured to handle frequent market-data updates while keeping watchlist operations responsive and scalable.",
-            image: "src/assets/projects/watchlist_backend.png",
+            image: watchlist_backend,
             techStack: ["Python", "Flask", "MongoDB", "Redis", "Web Socket"],
             link: "https://github.com/ashutosh-187/watchList_backend",
         },
@@ -57,7 +68,7 @@ function Projects() {
             projectName: "Stock Market Watchlist Frontend",
             description:
                 "A stock market watchlist interface built with Next.js, designed for real-time monitoring of subscribed instruments and live market movements. The application uses WebSockets to receive continuous price updates without requiring manual page refreshes, while providing interactive watchlist management, instrument search, and subscribe/unsubscribe functionality. Built with a component-driven architecture, the frontend delivers a responsive and intuitive trading experience while efficiently handling frequently changing market data.",
-            image: "src/assets/projects/watchlist_frontend.png",
+            image: watchlist_frontend,
             techStack: ["TypeScript", "Next.js", "TailwindCSS", "Redux"],
             link: "https://github.com/ashutosh-187/watchList_frontend",
         },
@@ -65,7 +76,7 @@ function Projects() {
             projectName: "Ochi Clone",
             description:
                 "A modern React-based website clone inspired by Ochi, focused on recreating its bold visual design, smooth scrolling, and interactive animations. The project uses Locomotive Scroll for smooth parallax-based navigation and Framer Motion to create fluid page transitions and engaging UI interactions, closely replicating the original site's immersive experience.",
-            image: "src/assets/projects/ochi_designs.png",
+            image: ochi_designs,
             techStack: ["JavaScript", "React.js", "TailwindCSS", "Locomotive Scroll", "Framer Motion"],
             link: "https://ochi-clone-iota.vercel.app/",
         },
@@ -73,7 +84,7 @@ function Projects() {
             projectName: "SidCup Golf Family Clone",
             description:
                 "A visually engaging HTML, CSS, and JavaScript website clone inspired by the Sidcup Family Golf website. The project focuses on recreating its immersive visual design, interactive elements, and smooth animations using GSAP, with Remix Icons enhancing the interface. The result is a responsive and animation-driven frontend experience that closely mirrors the original site's aesthetic and interactions.",
-            image: "src/assets/projects/sidcup.png",
+            image: sidcup,
             techStack: ["JavaScript", "HTML", "CSS", "GSAP"],
             link: "https://master--sidcup-family-clone-187.netlify.app/",
         },
@@ -81,7 +92,7 @@ function Projects() {
             projectName: "Edusity Clone",
             description:
                 "A responsive React-based educational website clone built with Vite, featuring a clean and modular interface designed to adapt across different screen sizes. The project includes an integrated Web3Forms contact system for handling user inquiries and form submissions, while Vite provides a fast development and build workflow. The application is deployed on Vercel for reliable hosting and accessibility.",
-            image: "src/assets/projects/edusity.png",
+            image: edusity,
             techStack: ["JavaScript", "React.js", "TailwindCSS"],
             link: "https://edusity-weld.vercel.app/",
         },

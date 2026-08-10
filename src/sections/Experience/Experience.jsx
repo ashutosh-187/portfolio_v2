@@ -1,6 +1,7 @@
 import React from 'react'
 import ExperienceCard from '../../components/ExperienceCard/ExperienceCard';
 import { BsAsterisk } from "react-icons/bs";
+import experience from "../../assets/experience.png"
 
 function Experience() {
   const experiences = [
@@ -56,7 +57,7 @@ function Experience() {
         {/* Left Column */}
         <aside className="col-span-3 border-r-2 border-[var(--border-color)] p-5 flex flex-col gap-10">
           <div className="image-container border-2 border-[var(--border-color)]">
-            <img src="src\assets\experience.png" alt="" />
+            <img src={experience} alt="" />
           </div>
           <div className='public-notice-container p-5 border-2 border-[var(--border-color)] flex flex-col items-center text-center bg-[var(--background-secondary)]'>
             <div className='heading-container mb-4 w-fit border-b-2 border-[var(--border-color)] [font-family:var(--label-font)] text-[var(--text-color)] text-2xl'>

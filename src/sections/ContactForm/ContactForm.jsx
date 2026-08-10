@@ -4,6 +4,7 @@ import { FaLinkedinIn } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa";
 import { SiGmail } from "react-icons/si";
 import { BsAsterisk } from "react-icons/bs";
+import contact from "../../assets/contact.png"
 
 function ContactForm() {
 
@@ -79,7 +80,7 @@ function ContactForm() {
 
                 <div className="image-and-icons flex flex-col gap-6 w-full lg:w-[35%]">
                     <div className="image-container flex flex-1 items-center justify-center border border-[var(--border-color)] bg-[var(--background-secondary)] p-3 overflow-hidden">
-                        <img src="src/assets/contact.png" alt="Contact illustration" className="h-full w-full object-cover" />
+                        <img src={contact} alt="Contact illustration" className="h-full w-full object-cover" />
                     </div>
 
                     <div className="icon-container flex items-center justify-center gap-5">
