@@ -4,6 +4,7 @@ import React, {
 } from 'react'
 import { PiFileCodeDuotone } from "react-icons/pi";
 import { scrollToSection } from '../../hooks/useLenis';
+import './Header.css';
 
 function Header() {
     const currentDate = new Date()
@@ -35,11 +36,70 @@ function Header() {
         },
     ];
 
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+    function openMenu() {
+        setIsMenuOpen(true);
+    }
+
+    function closeMenu() {
+        setIsMenuOpen(false);
+    }
+
     const handleNavClick = (event, id) => {
         event.preventDefault();
         setActiveSection(id);
         scrollToSection(id);
     };
+
+    // Link click inside the full-page menu: close the menu first so the
+    // body scroll lock is released, then scroll to the section.
+    function handleMobileNavClick(event, id) {
+        event.preventDefault();
+        closeMenu();
+        setActiveSection(id);
+        scrollToSection(id);
+    }
+
+    // Lock page scroll while the full-page menu is open.
+    useEffect(() => {
+        if (isMenuOpen) {
+            document.body.style.overflow = "hidden";
+        } else {
+            document.body.style.overflow = "";
+        }
+
+        return function restoreScroll() {
+            document.body.style.overflow = "";
+        };
+    }, [isMenuOpen]);
+
+    // Close the menu with Escape, or when the screen grows to desktop width.
+    useEffect(() => {
+        if (!isMenuOpen) {
+            return;
+        }
+
+        function handleKeyDown(event) {
+            if (event.key === "Escape") {
+                closeMenu();
+            }
+        }
+
+        function handleResize() {
+            if (window.innerWidth >= 1024) {
+                closeMenu();
+            }
+        }
+
+        window.addEventListener("keydown", handleKeyDown);
+        window.addEventListener("resize", handleResize);
+
+        return function removeListeners() {
+            window.removeEventListener("keydown", handleKeyDown);
+            window.removeEventListener("resize", handleResize);
+        };
+    }, [isMenuOpen]);
 
     // Scroll-spy: automatically highlight whichever section is currently
     // in view, not just the one that was last clicked.
@@ -89,30 +149,50 @@ function Header() {
     return (
         <>
             <div className="main-header-container">
-                <div className="main-heading-header pb-1 flex items-center justify-between border-b-2 border-[var(--border-color)] [font-family:var(--label-font)] text-[var(--text-muted-color)]">
-                    <span>Noida, India</span>
-                    <span>EST.2024</span>
+                <div className="main-heading-header header-top-row pb-1 flex items-center justify-between border-b-2 border-[var(--border-color)] [font-family:var(--label-font)] text-[var(--text-muted-color)]">
+                    <div className="header-top-left">
+                        <span>Noida, India</span>
+                        <span className="header-established">EST.2024</span>
+                    </div>
+                    <span className="header-date-masthead">{currentDate.toDateString()}</span>
+                    <span className="header-established-desktop">EST.2024</span>
+                    <button
+                        type="button"
+                        className={
+                            isMenuOpen
+                                ? "header-hamburger header-hamburger-masthead header-hamburger-open"
+                                : "header-hamburger header-hamburger-masthead"
+                        }
+                        aria-label="Open menu"
+                        aria-expanded={isMenuOpen}
+                        aria-controls="header-mobile-menu"
+                        onClick={openMenu}
+                    >
+                        <span className="header-hamburger-bar"></span>
+                        <span className="header-hamburger-bar"></span>
+                        <span className="header-hamburger-bar"></span>
+                    </button>
                 </div>
                 <div className="main-heading-container w-full text-center">
-                    <span className="flex items-center justify-center gap-3 text-8xl text-[var(--heading-color)] [font-family:var(--heading-font)] font-bold mb-2">
+                    <span className="header-title-row text-[var(--heading-color)] [font-family:var(--heading-font)] font-bold">
                         <PiFileCodeDuotone />
-                        <h1>
+                        <h1 className="header-title-text">
                             Full-Stack Developer
                         </h1>
                     </span>
                     <span>
-                        <h2 className='[font-family:var(--label-font)] text-[var(--text-muted-color)] border-b-2 border-[var(--border-color)] pb-8'>
+                        <h2 className='header-subtitle [font-family:var(--label-font)] text-[var(--text-muted-color)] border-b-2 border-[var(--border-color)]'>
                             Documenting My Journey as a Full-Stack Developer
                         </h2>
                     </span>
                 </div>
             </div>
 
-            <div className="sub-heading-container sticky top-0 z-50 bg-[var(--background-dark)] flex items-center justify-between text-[var(--text-muted-color)] border-b-2 border-[var(--border-color)] pb-2">
-                <h2>
+            <div className="sub-heading-container header-sticky-bar sticky top-0 z-50 bg-[var(--background-dark)] text-[var(--text-muted-color)] border-b-2 border-[var(--border-color)] pb-2">
+                <h2 className="header-date">
                     {currentDate.toDateString()}
                 </h2>
-                <nav className="flex items-center gap-8">
+                <nav className="header-nav">
                     {navItems.map((item) => (
                         <a
                             key={item.id}
@@ -120,8 +200,8 @@ function Header() {
                             onClick={(event) => handleNavClick(event, item.id)}
                             className={
                                 activeSection === item.id
-                                    ? "font-bold text-[var(--secondary-color)] border-b-2 border-[var(--secondary-color)]"
-                                    : "text-[var(--text-muted-color)]"
+                                    ? "header-nav-link header-nav-link-active"
+                                    : "header-nav-link text-[var(--text-muted-color)]"
                             }
                         >
                             {item.label}
@@ -129,6 +209,44 @@ function Header() {
                     ))}
                 </nav>
             </div>
+
+            {/* Always rendered so CSS can animate both opening and closing.
+                While closed it is invisible and cannot be focused or clicked. */}
+                <div
+                    id="header-mobile-menu"
+                    className={
+                        isMenuOpen
+                            ? "header-mobile-menu header-mobile-menu-open"
+                            : "header-mobile-menu"
+                    }
+                    aria-hidden={!isMenuOpen}
+                >
+                    <button
+                        type="button"
+                        className="header-mobile-close"
+                        aria-label="Close menu"
+                        onClick={closeMenu}
+                    >
+                        ✕
+                    </button>
+                    <nav className="header-mobile-nav">
+                        {navItems.map((item, index) => (
+                            <a
+                                key={item.id}
+                                href={`#${item.id}`}
+                                style={{ "--link-index": index }}
+                                onClick={(event) => handleMobileNavClick(event, item.id)}
+                                className={
+                                    activeSection === item.id
+                                        ? "header-mobile-link header-mobile-link-active"
+                                        : "header-mobile-link"
+                                }
+                            >
+                                {item.label}
+                            </a>
+                        ))}
+                    </nav>
+                </div>
         </>
     )
 }

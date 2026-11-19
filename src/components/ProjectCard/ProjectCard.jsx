@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "./ProjectCard.css";
 
 const exhibitLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
@@ -132,6 +133,7 @@ const ProjectCard = ({
 
             <div
                 className="
+                    project-card-content
                     flex
                     flex-1
                     flex-col
@@ -161,9 +163,9 @@ const ProjectCard = ({
 
                 <h2
                     className="
+                        project-card-title
                         mt-1
                         [font-family:var(--heading-font)]
-                        text-3xl
                         text-[var(--heading-color)]
                     "
                 >
@@ -196,6 +198,7 @@ const ProjectCard = ({
                                 setIsExpanded((previous) => !previous)
                             }
                             className="
+                                project-card-read-more
                                 m-2
                                 [font-family:var(--label-font)]
                                 text-xs
@@ -220,6 +223,7 @@ const ProjectCard = ({
 
                 <div
                     className="
+                        project-card-footer
                         mt-auto
                         grid
                         grid-cols-[1fr_auto]
@@ -238,12 +242,12 @@ const ProjectCard = ({
                             <span
                                 key={`${technology}-${index}`}
                                 className="
+                                    project-card-tag
                                     border
                                     border-[var(--border-color)]
                                     px-2
                                     py-1
                                     [font-family:var(--mono-font)]
-                                    text-[10px]
                                     uppercase
                                 "
                             >
@@ -261,6 +265,7 @@ const ProjectCard = ({
                             target="_blank"
                             rel="noopener noreferrer"
                             className="
+                                project-card-link
                                 flex
                                 shrink-0
                                 items-center

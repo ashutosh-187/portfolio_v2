@@ -1,0 +1,50 @@
+/*
+  Project card.
+  Mobile:  max-width: 767px
+  Tablet+: min-width: 768px
+*/
+
+.project-card-title {
+  font-size: 1.875rem;
+  line-height: 1.2;
+  overflow-wrap: anywhere;
+}
+
+.project-card-tag {
+  font-size: 0.625rem;
+}
+
+/* Mobile: the card is shorter than on desktop, so the text area scrolls
+   instead of being clipped when "Read More" is expanded. */
+@media (max-width: 767px) {
+  .project-card-content {
+    overflow-y: auto;
+    padding: 0.75rem;
+  }
+
+  .project-card-title {
+    font-size: 1.375rem;
+  }
+
+  /* Footer stacks: tags first, link button below at full width */
+  .project-card-footer {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+
+  .project-card-tag {
+    font-size: 0.75rem;
+  }
+
+  /* 44px minimum touch targets */
+  .project-card-read-more,
+  .project-card-link {
+    min-height: 44px;
+  }
+
+  .project-card-read-more {
+    display: inline-flex;
+    align-items: center;
+    padding: 0 0.5rem;
+  }
+}

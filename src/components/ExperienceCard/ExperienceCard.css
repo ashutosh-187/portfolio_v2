@@ -1,0 +1,64 @@
+/*
+  Experience card.
+  Mobile:  max-width: 767px
+  Tablet+: min-width: 768px
+*/
+
+.experience-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 90%;
+  padding: 1.25rem;
+}
+
+.experience-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  width: 100%;
+  padding: 1.25rem;
+}
+
+.experience-card-heading {
+  font-size: 1.875rem;
+  line-height: 1.2;
+  overflow-wrap: anywhere;
+}
+
+.experience-card-content,
+.experience-card-footer {
+  width: 100%;
+  padding: 1.25rem;
+}
+
+.experience-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+/* Mobile: full width, stacked header, tighter padding */
+@media (max-width: 767px) {
+  .experience-card {
+    width: 100%;
+    padding: 0.5rem;
+  }
+
+  .experience-card-header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0.75rem;
+  }
+
+  .experience-card-heading {
+    font-size: 1.375rem;
+  }
+
+  .experience-card-content,
+  .experience-card-footer {
+    padding: 0.75rem;
+  }
+}

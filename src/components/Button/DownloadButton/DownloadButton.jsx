@@ -66,6 +66,14 @@ const StyledWrapper = styled.div`
       box-shadow 0.1s ease-in-out;
   }
 
+  /* Mobile (max-width: 767px): 44px minimum touch target */
+  @media (max-width: 767px) {
+    a span {
+      padding-top: 14px;
+      padding-bottom: 14px;
+    }
+  }
+
   a span {
     padding: 10px 0 10px 18px;
     color: #f4f1e9;

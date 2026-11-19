@@ -4,16 +4,17 @@ import CustomButton from '../../components/Button/Button/CustomButton';
 import DownloadButton from '../../components/Button/DownloadButton/DownloadButton';
 import {scrollToSection} from "../../hooks/useLenis"
 import me from "../../assets/me.png"
+import "./Hero.css"
 
 
 function Hero() {
     return (
         <section
             id="hero"
-            className="grid grid-cols-12 border-b-2 border-[var(--border-color)] h-fit mb-5"
+            className="hero-grid border-b-2 border-[var(--border-color)] h-fit mb-5"
         >
             {/* Left Column */}
-            <aside className="col-span-3 border-r-2 border-[var(--border-color)] p-5">
+            <aside className="hero-left-column">
                 <div className="main-left-container border-2 border-[var(--border-color)] bg-[var(--background-secondary)]">
                     <div className="editor-note-container p-5">
                         <span>
@@ -22,7 +23,7 @@ function Hero() {
                             </h3>
                         </span>
                         <span>
-                            <p className='[font-family:var(--body-font)] text-2xl'>
+                            <p className='hero-body-text [font-family:var(--body-font)]'>
                                 This edition documents my journey from
                                 learning the fundamentals of programming
                                 to engineering scalable full-stack and
@@ -31,7 +32,7 @@ function Hero() {
                         </span>
                         <br />
                         <span>
-                            <p className='[font-family:var(--body-font)] text-2xl'>
+                            <p className='hero-body-text [font-family:var(--body-font)]'>
                                 Inside these pages you'll find the
                                 projects, technologies, and experiences
                                 that have shaped my growth as a software
@@ -67,19 +68,19 @@ function Hero() {
             </aside>
 
             {/* Middle Column */}
-            <main className="col-span-6 p-5">
+            <main className="hero-main-column">
                 <div className="name-heading-container">
-                    <h1 className="[font-family:var(--heading-font)] text-6xl">
+                    <h1 className="hero-name [font-family:var(--heading-font)]">
                         Ashutosh Tiwari
                     </h1>
 
-                    <h2 className="[font-family:var(--label-font)] uppercase tracking-widest text-3xl">
+                    <h2 className="hero-role [font-family:var(--label-font)]">
                         SOFTWARE ENGINEER
                     </h2>
                     <div className='picture-container mt-4 w-full'>
                         <LandingImage src={me} />
                     </div>
-                    <p className="[font-family:var(--body-font)] mt-4 text-2xl">
+                    <p className="hero-body-text [font-family:var(--body-font)] mt-4">
                         Building modern software with Python, Django, React, Next.js, PostgreSQL,
                         Redis, Docker, and LangChain crafting scalable backends, intuitive
                         frontends, and AI-powered applications from concept to deployment.
@@ -88,7 +89,7 @@ function Hero() {
             </main>
 
             {/* Right Column */}
-            <aside className="col-span-3 border-l-2 border-[var(--border-color)]">
+            <aside className="hero-right-column">
                 <div className='right-main-container'>
                     <div className="public-notic-div p-5">
                         <div className="public-notice-board-div border-2 border-[var(--border-color)] flex flex-col items-center text-center bg-[var(--background-secondary)] mb-5">
@@ -98,12 +99,12 @@ function Hero() {
                                 </h1>
                             </span>
                             <span>
-                                <h2 className='text-[var(--heading-color)] font-bold text-3xl'>
+                                <h2 className='hero-notice-title text-[var(--heading-color)] font-bold'>
                                     SEEKING
                                 </h2>
                             </span>
                             <span>
-                                <h3 className='text-[var(--heading-color)] font-bold text-3xl mb-5'>
+                                <h3 className='hero-notice-title text-[var(--heading-color)] font-bold mb-5'>
                                     OPPORTUNITIES
                                 </h3>
                             </span>

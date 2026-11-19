@@ -10,6 +10,7 @@ import sidcup from "../../assets/projects/sidcup.png"
 import travomiles from "../../assets/projects/travomiles.png"
 import watchlist_backend from "../../assets/projects/watchlist_backend.png"
 import watchlist_frontend from "../../assets/projects/watchlist_frontend.png"
+import "./Projects.css"
 
 
 function Projects() {
@@ -159,11 +160,11 @@ function Projects() {
 
             {/* ================= HEADER (stays exactly as before, scrolls normally) ================= */}
 
-            <div className="project-header w-fit border-b-2 border-[var(--border-color)] p-5 text-center">
+            <div className="project-header projects-header border-b-2 border-[var(--border-color)] text-center">
 
                 <h1
                     className="
-                        text-6xl
+                        projects-title
                         font-bold
                         text-[var(--heading-color)]
                         [font-family:var(--heading-font)]
@@ -174,8 +175,7 @@ function Projects() {
 
                 <h2
                     className="
-                        p-5
-                        text-3xl
+                        projects-subtitle
                         text-[var(--text-muted-color)]
                         [font-family:var(--label-font)]
                     "
@@ -185,7 +185,7 @@ function Projects() {
 
                 <p
                     className="
-                        text-2xl
+                        projects-intro-text
                         text-[var(--text-color)]
                         [font-family:var(--label-font)]
                     "
@@ -214,25 +214,17 @@ function Projects() {
             >
 
                 {/* Sticky viewport: pins to the top of the screen while wrapper scrolls */}
-                <div className="sticky top-0 h-screen w-full overflow-hidden flex items-center">
+                <div className="projects-sticky-pane sticky top-0">
 
                     <section
                         ref={trackRef}
-                        className="flex items-stretch gap-8 px-[4vw] pr-[15vw] will-change-transform"
+                        className="projects-track will-change-transform"
                         style={{ transform: `translateX(-${translateX}px)` }}
                     >
                         {projects.map((project, index) => (
                             <div
                                 key={project.projectName}
-                                className="
-                                    w-[42vw]
-                                    max-w-[620px]
-                                    min-w-[440px]
-                                    h-[75vh]
-                                    max-h-[760px]
-                                    min-h-[560px]
-                                    shrink-0
-                                "
+                                className="projects-card-slot"
                             >
                                 <ProjectCard
                                     exhibitNumber={index + 1}

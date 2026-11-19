@@ -1,0 +1,24 @@
+/*
+  Education card.
+  Mobile:  max-width: 767px
+*/
+
+.education-card-box {
+  padding: 1.5rem;
+}
+
+.education-card-degree {
+  font-size: 1.875rem;
+  line-height: 1.2;
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 767px) {
+  .education-card-box {
+    padding: 1rem;
+  }
+
+  .education-card-degree {
+    font-size: 1.375rem;
+  }
+}

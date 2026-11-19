@@ -1,0 +1,90 @@
+/*
+  Education section.
+  Mobile:  max-width: 767px
+  Desktop: min-width: 1024px (two columns)
+*/
+
+.education-heading-box {
+  padding: 1.25rem;
+}
+
+.education-title {
+  font-size: 3rem;
+  line-height: 1.1;
+}
+
+.education-subtitle {
+  font-size: 1.5rem;
+}
+
+/* Below 1024px the cards and the image stack in one column */
+.education-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+.education-left-column {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  margin-bottom: 1.25rem;
+  padding: 1.25rem;
+  border-bottom: 2px solid var(--border-color);
+}
+
+.education-right-column {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.25rem;
+}
+
+.education-asterisks {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  width: 100%;
+  padding: 1.25rem;
+  font-size: 2.25rem;
+}
+
+@media (min-width: 1024px) {
+  .education-layout {
+    grid-template-columns: 2fr 1fr;
+  }
+
+  .education-left-column {
+    padding-right: 2rem;
+    border-bottom: none;
+    border-right: 2px solid var(--border-color);
+  }
+}
+
+@media (max-width: 767px) {
+  .education-heading-box {
+    padding: 0.75rem;
+  }
+
+  .education-title {
+    font-size: 2rem;
+  }
+
+  .education-subtitle {
+    font-size: 1.05rem;
+  }
+
+  .education-layout {
+    gap: 1rem;
+  }
+
+  .education-left-column,
+  .education-right-column {
+    padding: 0.75rem;
+  }
+
+  .education-asterisks {
+    font-size: 1.5rem;
+  }
+}

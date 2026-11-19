@@ -1,9 +1,11 @@
 import React from "react";
+import "./SkillsCard.css";
 
 const SkillsCard = ({ evidenceNumber, heading, skills = [] }) => {
     return (
         <div
             className="
+                skills-card
                 relative
                 border-2
                 border-[var(--border-color)]
@@ -32,7 +34,7 @@ const SkillsCard = ({ evidenceNumber, heading, skills = [] }) => {
                 <span
                     className="
                         [font-family:var(--label-font)]
-                        text-[10px]
+                        skills-card-label-text
                         font-bold
                         uppercase
                         tracking-wider

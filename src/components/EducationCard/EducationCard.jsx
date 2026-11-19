@@ -1,4 +1,5 @@
 import React from "react";
+import "./EducationCard.css";
 
 const EducationCard = ({
     recordId,
@@ -13,13 +14,13 @@ const EducationCard = ({
         <article
             className="
                 education-card
+                education-card-box
                 relative
                 flex
                 flex-col
                 border
                 border-[var(--border-color)]
                 bg-[var(--background-color)]
-                p-6
             "
         >
 
@@ -68,9 +69,9 @@ const EducationCard = ({
 
             <h2
                 className="
+                    education-card-degree
                     mt-4
                     [font-family:var(--heading-font)]
-                    text-3xl
                     text-[var(--heading-color)]
                 "
             >

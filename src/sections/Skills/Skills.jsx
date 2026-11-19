@@ -1,6 +1,7 @@
 import React from 'react'
 import SkillsCard from '../../components/SkillsCard/SkillsCard';
 import { BsAsterisk } from "react-icons/bs";
+import "./Skills.css";
 
 function Skills() {
 
@@ -68,12 +69,12 @@ function Skills() {
 
     return (
         <div id="skills" className="skills-main-container border-b-2 border-[var(--border-color)]">
-            <div className="skills-heading-container mb-5 border-b-2 border-[var(--border-color)] p-5">
-                <h1 className="font-family:var(--heading-font)] text-[var(--heading-color)] font-semibold text-5xl text-center">
+            <div className="skills-heading-container skills-heading-box mb-5 border-b-2 border-[var(--border-color)]">
+                <h1 className="font-family:var(--heading-font)] text-[var(--heading-color)] font-semibold skills-title text-center">
                     Evidence Locker
                 </h1>
                 <div className='subheading-conatiner flex flex-col items-center justify-center text-center mt-5'>
-                    <p className="subheading-container text-2xl text-[var(--text-color)] [font-family:var(--label-font)]">
+                    <p className="subheading-container skills-subheading text-[var(--text-color)] [font-family:var(--label-font)]">
                         <span className="block">
                             CASE ID: 894-B // DATE OF ANALYSIS: [CURRENT]
                         </span>
@@ -92,7 +93,7 @@ function Skills() {
                     </p>
                 </div>
             </div>
-            <div className="skills-card-container grid grid-cols-1 gap-8 p-5 sm:grid-cols-2 lg:grid-cols-3 mt-5">
+            <div className="skills-card-container mt-5">
                 {skillCategories.map((category, index) => (
                     <SkillsCard
                         key={category.heading}
@@ -102,7 +103,7 @@ function Skills() {
                     />
                 ))}
             </div>
-            <div className="flex items-center justify-center w-full p-5 text-4xl gap-4">
+            <div className="skills-asterisks">
                 <BsAsterisk />
                 <BsAsterisk />
                 <BsAsterisk />

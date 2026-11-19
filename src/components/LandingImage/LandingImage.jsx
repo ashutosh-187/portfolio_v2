@@ -96,6 +96,16 @@ export default function LandingImage({
         font-family: "Courier New", Courier, monospace;
     }
 
+    /* Mobile (max-width: 767px): less frame padding, readable label */
+    @media (max-width: 767px) {
+        .exhibit-card {
+            padding: 8px;
+        }
+        .exhibit-label {
+            font-size: 12px;
+        }
+    }
+
     @media (prefers-reduced-motion: reduce) {
         .exhibit-photo {
         animation: none;

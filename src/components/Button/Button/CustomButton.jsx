@@ -42,6 +42,14 @@ const StyledWrapper = styled.div`
         width: 100%;
     }
 
+    /* Mobile (max-width: 767px): 44px minimum touch target */
+    @media (max-width: 767px) {
+        button span {
+            padding-top: 14px;
+            padding-bottom: 14px;
+        }
+    }
+
     button:active {
         transform: scale(0.94);
         box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.2);

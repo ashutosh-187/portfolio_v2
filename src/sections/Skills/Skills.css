@@ -1,0 +1,73 @@
+/*
+  Skills section.
+  Mobile:  max-width: 767px  (1 column)
+  Tablet:  min-width: 768px  (2 columns)
+  Desktop: min-width: 1024px (3 columns)
+*/
+
+.skills-heading-box {
+  padding: 1.25rem;
+}
+
+.skills-title {
+  font-size: 3rem;
+  line-height: 1.1;
+}
+
+.skills-subheading {
+  font-size: 1.5rem;
+}
+
+.skills-card-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  padding: 1.25rem;
+}
+
+.skills-asterisks {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  width: 100%;
+  padding: 1.25rem;
+  font-size: 2.25rem;
+}
+
+@media (min-width: 768px) {
+  .skills-card-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .skills-card-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 767px) {
+  .skills-heading-box {
+    padding: 0.75rem;
+  }
+
+  .skills-title {
+    font-size: 2rem;
+  }
+
+  .skills-subheading {
+    font-size: 0.95rem;
+    /* Long uppercase lines such as "SPECIALIZATION: ..." must wrap */
+    overflow-wrap: anywhere;
+  }
+
+  .skills-card-container {
+    gap: 1.5rem;
+    padding: 0.75rem;
+  }
+
+  .skills-asterisks {
+    font-size: 1.5rem;
+  }
+}

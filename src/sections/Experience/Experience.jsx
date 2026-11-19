@@ -2,6 +2,7 @@ import React from 'react'
 import ExperienceCard from '../../components/ExperienceCard/ExperienceCard';
 import { BsAsterisk } from "react-icons/bs";
 import experience from "../../assets/experience.png"
+import "./Experience.css"
 
 function Experience() {
   const experiences = [
@@ -47,15 +48,15 @@ function Experience() {
   ];
 
   return (
-    <div id="experience" className="main-experience-container p-5 border-2 border-[var(--border-color)] mb-5">
+    <div id="experience" className="main-experience-container experience-section border-2 border-[var(--border-color)] mb-5">
       <div className="investigation-timeline-heading mb-5">
-        <h1 className='text-[var(--heading-color)] [font-family:var(--heading-font)] text-6xl font-bold'>
+        <h1 className='experience-title text-[var(--heading-color)] [font-family:var(--heading-font)] font-bold'>
           Investigation Timeline
         </h1>
       </div>
-      <div className='UI-container grid grid-cols-12 border-t-2 border-[var(--border-color)]'>
+      <div className='UI-container experience-layout border-t-2 border-[var(--border-color)]'>
         {/* Left Column */}
-        <aside className="col-span-3 border-r-2 border-[var(--border-color)] p-5 flex flex-col gap-10">
+        <aside className="experience-sidebar">
           <div className="image-container border-2 border-[var(--border-color)]">
             <img src={experience} alt="" />
           </div>
@@ -79,11 +80,11 @@ function Experience() {
               </span>
             </div>
             <div className="additional-details-container w-full mt-5">
-              <div className="flex justify-between items-center border-b-2 border-[var(--border-color)] py-2">
+              <div className="experience-status-row border-b-2 border-[var(--border-color)] py-2">
                 <h3>Status:</h3>
                 <h3>Actively Looking for Opportunities</h3>
               </div>
-              <div className="flex justify-between items-center border-b-2 border-[var(--border-color)]">
+              <div className="experience-status-row border-b-2 border-[var(--border-color)]">
                 <h3>Edition:</h3>
                 <h3>2026</h3>
               </div>
@@ -91,13 +92,13 @@ function Experience() {
           </div>
         </aside>
         {/* Right Column */}
-        <main className="col-span-9 p-5">
-          <div className="experience-heading-container p-5 border-b-2 border-[var(--border-color)]">
-            <h1 className='w-fit text-[var(--heading-color)] [font-family:var(--heading-font)] text-5xl'>
+        <main className="experience-main">
+          <div className="experience-heading-container experience-heading-box p-5 border-b-2 border-[var(--border-color)]">
+            <h1 className='experience-subtitle text-[var(--heading-color)] [font-family:var(--heading-font)]'>
               Tracing every role, responsibility, and milestone
             </h1>
           </div>
-          <div className='experience-cards-container p-5 flex flex-col items-center gap-5 mt-5'>
+          <div className='experience-cards-container experience-cards-box p-5 flex flex-col items-center gap-5 mt-5'>
             {experiences.map((experience, index) => (
               <ExperienceCard
                 key={index}
@@ -111,7 +112,7 @@ function Experience() {
           </div>
         </main>
       </div>
-      <div className="flex items-center justify-center w-full p-5 text-4xl gap-4">
+      <div className="experience-asterisks">
         <BsAsterisk />
         <BsAsterisk />
         <BsAsterisk />

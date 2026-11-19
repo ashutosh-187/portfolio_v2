@@ -1,0 +1,24 @@
+/*
+  App-level layout.
+  Breakpoints used across the project:
+    Mobile:  max-width: 767px
+    Tablet:  min-width: 768px
+    Desktop: min-width: 1024px
+*/
+
+.app-root {
+  width: 100%;
+  min-height: 100vh;
+  padding: 0.5rem 1.25rem 0 1.25rem;
+  /* Stops any stray wide element from creating a sideways scrollbar.
+     "clip" (unlike "hidden") does not break position: sticky. */
+  overflow-x: clip;
+}
+
+/* Mobile: less side padding so content has more room */
+@media (max-width: 767px) {
+  .app-root {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+}

@@ -1,5 +1,6 @@
 import './App.css'
 import Header from './components/Header/Header';
+import Loader from './components/Loader/Loader';
 import { useLenis } from './hooks/useLenis';
 import FadeIn from './components/FadeIn/FadeIn';
 import ContactForm from './sections/ContactForm/ContactForm';
@@ -14,7 +15,8 @@ function App() {
   useLenis()
 
   return (
-    <div className="root-container bg-[var(--background-dark)] pl-5 pr-5 pt-2 w-full min-h-screen">
+    <div className="root-container app-root bg-[var(--background-dark)]">
+      <Loader />
       <Header />
       <FadeIn><Hero /></FadeIn>
       <FadeIn><Experience /></FadeIn>

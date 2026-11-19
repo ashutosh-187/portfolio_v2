@@ -1,0 +1,308 @@
+/*
+  Header styles.
+  Mobile:  max-width: 767px
+  Tablet:  min-width: 768px
+  Desktop: min-width: 1024px
+  Below 1024px (phone + tablet) the inline nav is replaced by a hamburger
+  button that opens a full-page menu.
+*/
+
+/* Big "Full-Stack Developer" title row */
+.header-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-bottom: 0.5rem;
+  font-size: 6rem;
+  line-height: 1.1;
+}
+
+.header-title-text {
+  font-size: inherit;
+}
+
+.header-subtitle {
+  padding-bottom: 2rem;
+}
+
+/* Sticky bar: date on the left, nav on the right (desktop) */
+.header-sticky-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.header-nav {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.header-nav-link {
+  /* Transparent border keeps the height the same for active/inactive links */
+  border-bottom: 2px solid transparent;
+  white-space: nowrap;
+}
+
+.header-nav-link-active {
+  font-weight: bold;
+  color: var(--secondary-color);
+  border-bottom-color: var(--secondary-color);
+}
+
+/* Masthead top row, desktop: "Noida, India" left, "EST.2024" right */
+.header-top-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header-top-left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* Phone/tablet-only items are hidden on desktop */
+.header-hamburger,
+.header-date-masthead,
+.header-established {
+  display: none;
+}
+
+/*
+  Full-page menu.
+  It is always in the page, but invisible and unclickable while closed.
+  Adding .header-mobile-menu-open plays the animations:
+    - the panel fades in and slides down from the top
+    - the close button spins in
+    - the links slide up one after another (delay set by --link-index)
+  On closing, everything plays in reverse and visibility is switched off
+  only after the fade finishes.
+*/
+.header-mobile-menu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 100;
+  height: 100vh;
+  height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  background: var(--background-dark);
+
+  /* Closed state = also the closing animation. The panel waits 0.25s so the
+     links can leave first, then slides up and fades out. Visibility is
+     switched off only after all of that (0.65s). */
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-100%);
+  transition:
+    opacity 0.35s ease 0.25s,
+    transform 0.4s ease-in 0.25s,
+    visibility 0s linear 0.65s;
+}
+
+.header-mobile-menu-open {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  transition:
+    opacity 0.3s ease,
+    transform 0.4s ease-out,
+    visibility 0s linear 0s;
+}
+
+.header-mobile-close {
+  align-self: flex-end;
+  width: 44px;
+  height: 44px;
+  margin: 0.75rem;
+  font-size: 1.5rem;
+  color: var(--heading-color);
+  border: 2px solid var(--border-color);
+  background: transparent;
+  cursor: pointer;
+  transform: rotate(-90deg) scale(0.6);
+  opacity: 0;
+  transition: transform 0.25s ease-in, opacity 0.2s ease;
+}
+
+.header-mobile-menu-open .header-mobile-close {
+  transform: rotate(0deg) scale(1);
+  opacity: 1;
+  transition-delay: 0.1s;
+}
+
+.header-mobile-nav {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 1.5rem 2rem 1.5rem;
+}
+
+.header-mobile-link {
+  display: flex;
+  align-items: center;
+  min-height: 56px;
+  padding: 0.5rem 0;
+  font-family: var(--heading-font);
+  font-size: 1.75rem;
+  color: var(--text-muted-color);
+  border-bottom: 2px solid var(--border-color);
+
+  /* Closed state: links leave one after another, bottom link first
+     (6 links, so the delay is (5 - index) * 0.04s), sliding up and fading. */
+  opacity: 0;
+  transform: translateY(-1rem);
+  transition:
+    opacity 0.2s ease calc((5 - var(--link-index)) * 0.04s),
+    transform 0.2s ease-in calc((5 - var(--link-index)) * 0.04s),
+    color 0.2s ease;
+}
+
+/* Open state: each link waits a little longer than the one before it */
+.header-mobile-menu-open .header-mobile-link {
+  opacity: 1;
+  transform: translateY(0);
+  transition:
+    opacity 0.4s ease calc(0.2s + var(--link-index) * 0.07s),
+    transform 0.4s ease-out calc(0.2s + var(--link-index) * 0.07s),
+    color 0.2s ease;
+}
+
+.header-mobile-link:active {
+  color: var(--secondary-color);
+}
+
+.header-mobile-link-active {
+  font-weight: bold;
+  color: var(--secondary-color);
+}
+
+/* Hamburger icon: the three bars turn into an X while the menu is open */
+.header-hamburger-bar {
+  transition: transform 0.3s ease, opacity 0.2s ease;
+}
+
+.header-hamburger-open .header-hamburger-bar:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.header-hamburger-open .header-hamburger-bar:nth-child(2) {
+  opacity: 0;
+}
+
+.header-hamburger-open .header-hamburger-bar:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* Respect "reduce motion": no sliding, spinning or staggering */
+@media (prefers-reduced-motion: reduce) {
+  .header-mobile-menu,
+  .header-mobile-menu-open,
+  .header-mobile-close,
+  .header-mobile-link,
+  .header-mobile-menu-open .header-mobile-link,
+  .header-hamburger-bar {
+    transition-duration: 0.01s;
+    transition-delay: 0s;
+    transform: none;
+  }
+}
+
+/* Phone + tablet: hamburger replaces the inline nav and the date */
+@media (max-width: 1023px) {
+  .header-title-row {
+    font-size: 3.5rem;
+  }
+
+  .header-nav,
+  .header-date {
+    display: none;
+  }
+
+  /* Top row: Noida/EST.2024 stacked on the left, date centered,
+     hamburger on the right */
+  .header-top-row {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .header-date-masthead {
+    display: inline;
+    text-align: center;
+    white-space: nowrap;
+  }
+
+  .header-established {
+    display: inline;
+  }
+
+  .header-established-desktop {
+    display: none;
+  }
+
+  .header-hamburger-masthead {
+    justify-self: end;
+  }
+
+  /* The sticky bar only held the desktop date and nav, so it is empty here */
+  .header-sticky-bar {
+    display: none;
+  }
+
+  .header-hamburger {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    width: 44px;
+    height: 44px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+  }
+
+  .header-hamburger-bar {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--heading-color);
+  }
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+  .header-title-row {
+    flex-direction: column;
+    font-size: 2.25rem;
+    gap: 0.25rem;
+  }
+
+  .header-subtitle {
+    padding-bottom: 1rem;
+    font-size: 0.875rem;
+  }
+
+  .header-top-row {
+    font-size: 0.8rem;
+  }
+}
+
+/* Very narrow phones: keep the three top-row columns on one line */
+@media (max-width: 380px) {
+  .header-top-row {
+    font-size: 0.7rem;
+  }
+}

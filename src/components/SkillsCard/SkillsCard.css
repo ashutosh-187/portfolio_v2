@@ -1,0 +1,20 @@
+/*
+  Skills card.
+  Mobile:  max-width: 767px
+*/
+
+.skills-card-label-text {
+  font-size: 0.625rem;
+}
+
+/* Mobile: no hover movement on touch screens, larger label text */
+@media (max-width: 767px) {
+  .skills-card-label-text {
+    font-size: 0.75rem;
+  }
+
+  .skills-card:hover {
+    transform: none;
+    box-shadow: none;
+  }
+}
